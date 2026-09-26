@@ -2,6 +2,11 @@
 
 Use the ESP-IDF Component Manager for external components first, instead of copying component source code into this repository.
 
+## Repository workflow
+
+In this repository, custom components hosted in different GitHub repositories should be added using **2) Dependency from a Git repository** in `idf_component.yml`.
+This is the default team workflow for external custom components.
+
 ## Preferred approach: `idf_component.yml`
 
 Define dependencies in a component manifest file (`idf_component.yml`) so ESP-IDF can fetch and manage them.
