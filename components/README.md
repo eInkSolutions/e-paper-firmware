@@ -1,10 +1,45 @@
-# Custom components
+# Custom components (ESP-IDF way)
 
-Place custom ESP-IDF components in this directory.
+Use the ESP-IDF Component Manager for external components first, instead of copying component source code into this repository.
 
-For components hosted in another GitHub repository, either:
+## Preferred approach: `idf_component.yml`
 
-1. Add that repository as a git submodule under `components/`, or
-2. Copy/vendor the component folders into `components/`.
+Define dependencies in a component manifest file (`idf_component.yml`) so ESP-IDF can fetch and manage them.
 
-Each component should contain its own `CMakeLists.txt` and source files so ESP-IDF can discover it automatically.
+### 1) Dependency from ESP Component Registry
+
+```yaml
+dependencies:
+  example/cmp: ">=1.0.0"
+```
+
+### 2) Dependency from a Git repository
+
+```yaml
+dependencies:
+  test_component:
+    path: test_component
+    git: ssh://git@gitlab.com/user/components.git
+```
+
+### 3) Dependency from a local path (development)
+
+```yaml
+dependencies:
+  some_local_component:
+    path: ../../projects/component
+```
+
+## CLI option
+
+You can also add dependencies with ESP-IDF CLI commands, for example:
+
+```bash
+idf.py add-dependency "example/cmp^1.0.0"
+```
+
+## When to use `components/` directly
+
+Use the local `components/` directory for project-owned components that belong in this repository, or for temporary local development.
+
+If you place a component locally, ensure it contains a valid `CMakeLists.txt` and source files so ESP-IDF can discover it.
