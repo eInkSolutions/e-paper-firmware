@@ -1,6 +1,6 @@
 # e-paper-firmware
 
-This firmware is supposed to run on an ESP32-C3, gather display and board runtime context, and provide the foundation for driving an e-paper display pipeline with reusable custom components.
+This project’s goal is to run on an ESP32-C3 and show images on an e-paper screen, while providing a reusable firmware foundation for the display pipeline and related custom components.
 
 ## Project setup (ESP-IDF + ESP32-C3)
 
