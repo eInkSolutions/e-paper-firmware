@@ -26,13 +26,5 @@ On boot, the firmware prints basic hardware information (target, cores, revision
 
 ## Custom components from another GitHub repository
 
-Use the `components/` directory for custom ESP-IDF components.
-
-Example with a git submodule:
-
-```bash
-git submodule add https://github.com/<org>/<custom-components-repo>.git components/<custom-components-repo>
-```
-
-Alternatively, vendor/copy the component folders directly under `components/`.
-ESP-IDF will automatically discover valid components during `idf.py build`.
+For external components, this repository uses ESP-IDF component dependencies declared in `idf_component.yml`.
+See [`components/README.md`](components/README.md) for the complete workflow and examples.
